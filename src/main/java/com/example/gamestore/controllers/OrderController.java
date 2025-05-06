@@ -1,0 +1,111 @@
+package com.example.gamestore.controllers;
+
+import com.example.gamestore.models.Order;
+import com.example.gamestore.models.OrderItem;
+import com.example.gamestore.services.OrderItemService;
+import com.example.gamestore.services.OrderService;
+import com.example.gamestore.utils.OrderWithItemsRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+
+    private final OrderService orderService;
+    private final OrderItemService orderItemService;
+
+    @Autowired
+    public OrderController(OrderService orderService, OrderItemService orderItemService) {
+        this.orderService = orderService;
+        this.orderItemService = orderItemService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Order>> getAllOrders() {
+        List<Order> orders = orderService.findAllOrders();
+        return ResponseEntity.ok(orders);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Order> getOrderById(@PathVariable int id) {
+        Optional<Order> order = orderService.findOrderById(id);
+        return order.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Order>> getOrdersByUserId(@PathVariable int userId) {
+        List<Order> orders = orderService.findOrdersByUserId(userId);
+        return ResponseEntity.ok(orders);
+    }
+
+    @GetMapping("/status/{status}")
+    public ResponseEntity<List<Order>> getOrdersByStatus(@PathVariable String status) {
+        List<Order> orders = orderService.findOrdersByStatus(status);
+        return ResponseEntity.ok(orders);
+    }
+
+    @GetMapping("/{id}/items")
+    public ResponseEntity<List<OrderItem>> getOrderItems(@PathVariable int id) {
+        List<OrderItem> orderItems = orderService.findOrderItemsByOrderId(id);
+        return ResponseEntity.ok(orderItems);
+    }
+
+    @PostMapping("/user/{userId}")
+    public ResponseEntity<Order> createOrderFromCart(@PathVariable int userId) {
+        try {
+            Order order = orderService.createOrderFromCart(userId);
+            return ResponseEntity.status(HttpStatus.CREATED).body(order);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @PostMapping("/with-items")
+    public ResponseEntity<Order> createOrderWithItems(@RequestBody OrderWithItemsRequest request) {
+        try {
+            Order savedOrder = orderService.saveOrder(request.getOrder());
+
+            // Save order items with the new order ID
+            for (OrderItem item : request.getItems()) {
+                item.setOrderId(savedOrder.getId());
+                orderItemService.saveOrderItem(item);
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedOrder);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<Order> updateOrderStatus(@PathVariable int id, @RequestParam String status) {
+        try {
+            Order updatedOrder = orderService.updateOrderStatus(id, status);
+            return ResponseEntity.ok(updatedOrder);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Order> updateOrder(@PathVariable int id, @RequestBody Order order) {
+        order.setId(id);
+        Order updatedOrder = orderService.saveOrder(order);
+        return ResponseEntity.ok(updatedOrder);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable int id) {
+        orderService.deleteOrder(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+}
