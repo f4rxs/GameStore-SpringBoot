@@ -55,7 +55,11 @@ public class UserService {
     }
 
     public Optional<User> authenticateUser(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password);
+        Optional<User> user = findUserByEmail(email);
+        if (user.isPresent() && user.get().getPassword().equals(password)) {
+            return user;
+        }
+        return Optional.empty();
     }
 
     public User updateUser(User user) {
