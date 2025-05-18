@@ -1,5 +1,6 @@
 package com.example.gamestore.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.sql.Date;
 
@@ -18,12 +19,16 @@ public class Game {
 
     private double price;
 
+
+
     @Column(name = "release_date")
     private Date releaseDate;
 
     private int stock;
 
     private String description;
+
+
 
     public Game() {}
 
@@ -50,14 +55,17 @@ public class Game {
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
 
+
     public Date getReleaseDate() { return releaseDate; }
-    public void setReleaseDate(Date releaseDate) { this.releaseDate = releaseDate; }
+    public void setRelaeaseDate(Date releaseDate) { this.releaseDate = releaseDate; }
 
     public int getStock() { return stock; }
     public void setStock(int stock) { this.stock = stock; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+
 
     @Override
     public String toString() {
