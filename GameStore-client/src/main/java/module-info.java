@@ -10,6 +10,7 @@ module com.example.gamestoreclient {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires com.google.gson;
 
     opens com.example.gamestoreclient to javafx.fxml;
     exports com.example.gamestoreclient;

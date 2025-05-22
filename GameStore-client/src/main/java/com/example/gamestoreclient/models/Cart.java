@@ -1,5 +1,5 @@
 package com.example.gamestoreclient.models;
-import java.sql.Timestamp
+import java.sql.Timestamp;
 public class Cart {
 
     private int userId;
