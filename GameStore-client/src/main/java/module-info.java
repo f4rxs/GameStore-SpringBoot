@@ -11,7 +11,22 @@ module com.example.gamestoreclient {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires com.google.gson;
+    requires java.sql;
 
     opens com.example.gamestoreclient to javafx.fxml;
     exports com.example.gamestoreclient;
+
+    opens com.example.gamestoreclient.controllers to javafx.fxml;
+    exports com.example.gamestoreclient.controllers;
+
+    opens com.example.gamestoreclient.models to javafx.fxml;
+    exports com.example.gamestoreclient.models;
+
+    opens com.example.gamestoreclient.services to javafx.fxml;
+    exports com.example.gamestoreclient.services;
+
+    opens com.example.gamestoreclient.utils to javafx.fxml;
+    exports com.example.gamestoreclient.utils;
+
+
 }
