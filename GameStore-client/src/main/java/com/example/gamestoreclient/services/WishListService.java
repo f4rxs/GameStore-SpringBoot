@@ -3,6 +3,7 @@ package com.example.gamestoreclient.services;
 import com.example.gamestoreclient.models.WishList;
 import com.example.gamestoreclient.utils.HttpUtils;
 import com.example.gamestoreclient.config.ApiConfig;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 
@@ -14,12 +15,12 @@ import java.util.List;
 
 public class WishListService {
     public List<WishList> getAllWishLists() throws IOException {
-        Type wishListType = new TypeToken<List<WishList>>(){}.getType();
+        TypeReference<List<WishList>> wishListType = new TypeReference<List<WishList>>() {};
         return HttpUtils.getList(ApiConfig.WISHLIST_URL, wishListType);
     }
 
     public List<WishList> getWishListByUserId(int userId) throws IOException {
-        Type wishListType = new TypeToken<List<WishList>>(){}.getType();
+        TypeReference<List<WishList>> wishListType = new TypeReference<List<WishList>>() {};
         return HttpUtils.getList(ApiConfig.WISHLIST_URL + "/user/" + userId, wishListType);
     }
 

@@ -4,6 +4,7 @@ import com.example.gamestoreclient.config.ApiConfig;
 import com.example.gamestoreclient.models.Order;
 import com.example.gamestoreclient.models.OrderItem;
 import com.example.gamestoreclient.utils.HttpUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class OrderService {
     public List<Order> getAllOrders() throws IOException {
-        Type orderListType = new TypeToken<List<Order>>(){}.getType();
+        TypeReference<List<Order>> orderListType = new TypeReference<List<Order>>() {};
         return HttpUtils.getList(ApiConfig.ORDERS_URL, orderListType);
     }
 
@@ -22,17 +23,17 @@ public class OrderService {
     }
 
     public List<Order> getOrdersByUserId(int userId) throws IOException {
-        Type orderListType = new TypeToken<List<Order>>(){}.getType();
+        TypeReference<List<Order>> orderListType = new TypeReference<List<Order>>() {};
         return HttpUtils.getList(ApiConfig.ORDERS_URL + "/user/" + userId, orderListType);
     }
 
     public List<Order> getOrdersByStatus(String status) throws IOException {
-        Type orderListType = new TypeToken<List<Order>>(){}.getType();
+        TypeReference<List<Order>> orderListType = new TypeReference<List<Order>>() {};
         return HttpUtils.getList(ApiConfig.ORDERS_URL + "/status/" + status, orderListType);
     }
 
     public List<OrderItem> getOrderItems(int orderId) throws IOException {
-        Type orderItemListType = new TypeToken<List<OrderItem>>(){}.getType();
+        TypeReference<List<OrderItem>> orderItemListType = new TypeReference<List<OrderItem>>() {};
         return HttpUtils.getList(ApiConfig.ORDERS_URL + "/" + orderId + "/items", orderItemListType);
     }
 

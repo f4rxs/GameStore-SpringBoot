@@ -3,6 +3,7 @@ package com.example.gamestoreclient.services;
 import com.example.gamestoreclient.models.Review;
 import com.example.gamestoreclient.utils.HttpUtils;
 import com.example.gamestoreclient.config.ApiConfig;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class ReviewService {
     public List<Review> getAllReviews() throws IOException {
-        Type reviewListType = new TypeToken<List<Review>>(){}.getType();
+        TypeReference<List<Review>> reviewListType = new TypeReference<List<Review>>() {};
         return HttpUtils.getList(ApiConfig.REVIEWS_URL, reviewListType);
     }
 
@@ -20,12 +21,12 @@ public class ReviewService {
     }
 
     public List<Review> getReviewsByUserId(int userId) throws IOException {
-        Type reviewListType = new TypeToken<List<Review>>(){}.getType();
+        TypeReference<List<Review>> reviewListType = new TypeReference<List<Review>>() {};
         return HttpUtils.getList(ApiConfig.REVIEWS_URL + "/user/" + userId, reviewListType);
     }
 
     public List<Review> getReviewsByGameId(int gameId) throws IOException {
-        Type reviewListType = new TypeToken<List<Review>>(){}.getType();
+        TypeReference<List<Review>> reviewListType = new TypeReference<List<Review>>() {};
         return HttpUtils.getList(ApiConfig.REVIEWS_URL + "/game/" + gameId, reviewListType);
     }
 

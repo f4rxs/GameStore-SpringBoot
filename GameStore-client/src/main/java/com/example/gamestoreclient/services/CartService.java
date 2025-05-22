@@ -4,7 +4,7 @@ import com.example.gamestoreclient.models.Game;
 import com.example.gamestoreclient.models.Cart;
 import com.example.gamestoreclient.config.ApiConfig;
 import com.example.gamestoreclient.utils.HttpUtils;
-import com.google.gson.reflect.TypeToken;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -14,12 +14,12 @@ import java.util.List;
 
 public class CartService {
     public List<Cart> getCartByUserId(int userId) throws IOException {
-        Type cartListType = new TypeToken<List<Cart>>(){}.getType();
+        TypeReference<List<Cart>> cartListType = new TypeReference<List<Cart>>() {};
         return HttpUtils.getList(ApiConfig.CART_URL + "/user/" + userId, cartListType);
     }
 
     public List<Game> getUserCartGames(int userId) throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.CART_URL + "/user/" + userId + "/games", gameListType);
     }
 

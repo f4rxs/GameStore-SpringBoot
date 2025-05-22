@@ -12,6 +12,8 @@ module com.example.gamestoreclient {
     requires com.almasb.fxgl.all;
     requires com.google.gson;
     requires java.sql;
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
 
     opens com.example.gamestoreclient to javafx.fxml;
     exports com.example.gamestoreclient;

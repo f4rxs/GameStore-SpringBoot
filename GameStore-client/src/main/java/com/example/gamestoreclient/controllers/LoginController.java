@@ -57,7 +57,7 @@ public class LoginController {
     @FXML
     private void handleRegister(ActionEvent event) {
         try {
-            Parent registerView = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
+            Parent registerView = FXMLLoader.load(getClass().getResource("/com/example/gamestoreclient/fxml/Register.fxml"));
             Scene registerScene = new Scene(registerView);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

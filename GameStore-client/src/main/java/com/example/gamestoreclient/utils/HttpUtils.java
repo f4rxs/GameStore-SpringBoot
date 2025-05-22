@@ -1,21 +1,23 @@
 package com.example.gamestoreclient.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-
 public class HttpUtils {
-    private static final Gson gson = new Gson();
+    private static final ObjectMapper objectMapper = new ObjectMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
     // Generic GET request
     public static <T> T get(String url, Class<T> responseType) throws IOException {
@@ -30,14 +32,14 @@ public class HttpUtils {
                 response.append(line);
             }
 
-            return gson.fromJson(response.toString(), responseType);
+            return objectMapper.readValue(response.toString(), responseType);
         } finally {
             connection.disconnect();
         }
     }
 
     // GET request for lists
-    public static <T> List<T> getList(String url, Type listType) throws IOException {
+    public static <T> List<T> getList(String url, TypeReference<List<T>> typeReference) throws IOException {
         HttpURLConnection connection = createGetConnection(url);
 
         try (BufferedReader reader = new BufferedReader(
@@ -49,7 +51,7 @@ public class HttpUtils {
                 response.append(line);
             }
 
-            return gson.fromJson(response.toString(), listType);
+            return objectMapper.readValue(response.toString(), typeReference);
         } finally {
             connection.disconnect();
         }
@@ -59,7 +61,7 @@ public class HttpUtils {
     public static <T> T post(String url, Object requestBody, Class<T> responseType) throws IOException {
         HttpURLConnection connection = createConnection(url, "POST");
 
-        String jsonBody = gson.toJson(requestBody);
+        String jsonBody = objectMapper.writeValueAsString(requestBody);
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
@@ -74,7 +76,7 @@ public class HttpUtils {
                 response.append(line);
             }
 
-            return gson.fromJson(response.toString(), responseType);
+            return objectMapper.readValue(response.toString(), responseType);
         } finally {
             connection.disconnect();
         }
@@ -84,7 +86,7 @@ public class HttpUtils {
     public static <T> T put(String url, Object requestBody, Class<T> responseType) throws IOException {
         HttpURLConnection connection = createConnection(url, "PUT");
 
-        String jsonBody = gson.toJson(requestBody);
+        String jsonBody = objectMapper.writeValueAsString(requestBody);
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
@@ -99,7 +101,7 @@ public class HttpUtils {
                 response.append(line);
             }
 
-            return gson.fromJson(response.toString(), responseType);
+            return objectMapper.readValue(response.toString(), responseType);
         } finally {
             connection.disconnect();
         }

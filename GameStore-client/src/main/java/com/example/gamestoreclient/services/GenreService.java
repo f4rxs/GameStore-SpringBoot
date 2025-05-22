@@ -3,6 +3,7 @@ package com.example.gamestoreclient.services;
 import com.example.gamestoreclient.models.Genre;
 import com.example.gamestoreclient.config.ApiConfig;
 import com.example.gamestoreclient.utils.HttpUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -10,8 +11,9 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class GenreService {
+
     public List<Genre> getAllGenres() throws IOException {
-        Type genreListType = new TypeToken<List<Genre>>(){}.getType();
+        TypeReference<List<Genre>> genreListType = new TypeReference<List<Genre>>() {};
         return HttpUtils.getList(ApiConfig.GENRES_URL, genreListType);
     }
 

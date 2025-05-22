@@ -6,6 +6,7 @@ import com.example.gamestoreclient.config.ApiConfig;
 import com.example.gamestoreclient.models.LoginRequest;
 import com.example.gamestoreclient.models.User;
 import com.example.gamestoreclient.utils.HttpUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ import java.util.List;
 public class UserService {
 
     public List<User> getAllUsers() throws IOException {
-        Type userListType = new TypeToken<List<User>>(){}.getType();
+        TypeReference<List<User>> userListType = new TypeReference<List<User>>() {};
         return HttpUtils.getList(ApiConfig.USERS_URL, userListType);
     }
 

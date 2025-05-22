@@ -2,6 +2,7 @@ package com.example.gamestoreclient.services;
 import com.example.gamestoreclient.config.ApiConfig;
 import com.example.gamestoreclient.models.Game;
 import com.example.gamestoreclient.utils.HttpUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 public class GameService {
     public List<Game> getAllGames() throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL, gameListType);
     }
 
@@ -18,27 +19,27 @@ public class GameService {
     }
 
     public List<Game> getGamesByGenre(int genreId) throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL + "/genre/" + genreId, gameListType);
     }
 
     public List<Game> getPurchasedGamesForUser(int userId) throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL + "/user/" + userId + "/purchased", gameListType);
     }
 
     public List<Game> searchGamesByTitle(String title) throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL + "/search?title=" + title, gameListType);
     }
 
     public List<Game> getGamesByMaxPrice(double maxPrice) throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL + "/price?maxPrice=" + maxPrice, gameListType);
     }
 
     public List<Game> getAvailableGames() throws IOException {
-        Type gameListType = new TypeToken<List<Game>>(){}.getType();
+        TypeReference<List<Game>> gameListType = new TypeReference<List<Game>>() {};
         return HttpUtils.getList(ApiConfig.GAMES_URL + "/available", gameListType);
     }
 
