@@ -7,7 +7,6 @@ import com.example.gamestoreclient.models.LoginRequest;
 import com.example.gamestoreclient.models.User;
 import com.example.gamestoreclient.utils.HttpUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

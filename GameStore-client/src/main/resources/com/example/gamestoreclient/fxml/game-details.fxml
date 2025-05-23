@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gamestoreclient.controllers.GameDetailsController"
+            prefHeight="500.0" prefWidth="700.0"
+            stylesheets="/styles/styles.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label fx:id="titleLabel" styleClass="game-detail-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Back" onAction="#handleBack"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="20">
+                <HBox spacing="20">
+                    <ImageView fx:id="gameImage" fitWidth="200" fitHeight="300" preserveRatio="true"/>
+
+                    <VBox spacing="10">
+                        <Label fx:id="priceLabel" styleClass="game-detail-price"/>
+                        <Label fx:id="genreLabel"/>
+                        <Label fx:id="releaseDateLabel"/>
+                        <Label fx:id="availabilityLabel"/>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button text="Add to Cart" onAction="#handleAddToCart"/>
+                            <Button text="Add to Wishlist" onAction="#handleAddToWishlist"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="10">
+                    <Label text="Description" styleClass="section-subtitle"/>
+                    <TextArea fx:id="descriptionArea" wrapText="true" editable="false" prefHeight="100"/>
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label text="Reviews" styleClass="section-subtitle"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label fx:id="averageRatingLabel"/>
+                        <Button text="Write a Review" onAction="#handleWriteReview"/>
+                    </HBox>
+                    <ListView fx:id="reviewsListView" prefHeight="200"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

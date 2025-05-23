@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gamestoreclient.controllers.CartController"
+      spacing="15" styleClass="content-container">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="My Shopping Cart" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Clear Cart" onAction="#handleClearCart" styleClass="danger-button"/>
+    </HBox>
+
+    <TableView fx:id="cartTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="gameColumn" text="Game" prefWidth="250"/>
+            <TableColumn fx:id="priceColumn" text="Price" prefWidth="100"/>
+            <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="100"/>
+            <TableColumn fx:id="totalColumn" text="Total" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" spacing="15">
+        <Label text="Total:" styleClass="cart-total-label"/>
+        <Label fx:id="totalPriceLabel" styleClass="cart-total-price"/>
+    </HBox>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button text="Continue Shopping" onAction="#handleContinueShopping"/>
+        <Button text="Checkout" onAction="#handleCheckout" styleClass="primary-button"/>
+    </HBox>
+</VBox>

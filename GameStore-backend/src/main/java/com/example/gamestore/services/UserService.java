@@ -2,8 +2,10 @@ package com.example.gamestore.services;
 
 import com.example.gamestore.models.User;
 import com.example.gamestore.repositories.UserRepository;
+import com.example.gamestore.utils.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -41,6 +43,10 @@ public class UserService {
             throw new IllegalArgumentException("Email already in use");
         }
 
+        // Hash the password
+        String hashedPassword = PasswordUtils.hashPassword(user.getPassword());
+        user.setPassword(hashedPassword);
+
         // Set default role if not specified
         if (user.getRole() == null) {
             user.setRole(User.Role.CUSTOMER);
@@ -54,13 +60,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
+
     public Optional<User> authenticateUser(String email, String password) {
         Optional<User> user = findUserByEmail(email);
-        if (user.isPresent() && user.get().getPassword().equals(password)) {
+        if (user.isPresent() && PasswordUtils.checkPassword(password, user.get().getPassword())) {
             return user;
         }
         return Optional.empty();
     }
+
 
     public User updateUser(User user) {
         if (user.getId() == 0) {
@@ -74,8 +82,11 @@ public class UserService {
 
         User existingUser = existingUserOpt.get();
 
-        // Only update password if it's provided and different
-        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+        // Only update and hash password if it's provided
+        if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+            String hashedPassword = PasswordUtils.hashPassword(user.getPassword());
+            user.setPassword(hashedPassword);
+        } else {
             user.setPassword(existingUser.getPassword());
         }
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gamestoreclient.controllers.GameFormController"
+      spacing="15" prefWidth="600.0" prefHeight="500.0"
+      stylesheets="">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="formTitleLabel" styleClass="section-title"/>
+
+    <GridPane hgap="10" vgap="15">
+        <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="titleField" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
+        <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextArea fx:id="descriptionArea" wrapText="true" prefHeight="100"
+                  GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
+        <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Genre:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="genreComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Image URL:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="imageUrlField" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
+        <Label text="Available:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <CheckBox fx:id="availableCheckBox" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Release Date:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="releaseDatePicker" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button fx:id="saveButton" text="Save" onAction="#handleSave" styleClass="primary-button"/>
+    </HBox>
+</VBox>

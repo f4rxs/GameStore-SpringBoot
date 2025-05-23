@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gamestoreclient.controllers.DashboardController"
+            prefHeight="700.0" prefWidth="1000.0"
+            stylesheets="">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Game Store" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userNameLabel" text="Welcome, User" styleClass="user-welcome"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            <Button text="Store" onAction="#showGamesView" styleClass="nav-button"/>
+            <Button text="My Library" onAction="#showLibraryView" styleClass="nav-button"/>
+            <Button text="My Cart" onAction="#showCartView" styleClass="nav-button"/>
+            <Button text="My Wishlist" onAction="#showWishlistView" styleClass="nav-button"/>
+            <Button text="My Orders" onAction="#showOrdersView" styleClass="nav-button"/>
+            <Separator styleClass="nav-separator"/>
+            <Button fx:id="adminButton" text="Admin Panel" onAction="#showAdminView" styleClass="nav-button" visible="false"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea">
+            <!-- Content will be loaded here dynamically -->
+        </StackPane>
+    </center>
+</BorderPane>
