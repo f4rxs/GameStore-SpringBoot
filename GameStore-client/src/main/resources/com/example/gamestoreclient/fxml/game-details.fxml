@@ -9,7 +9,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.gamestoreclient.controllers.GameDetailsController"
             prefHeight="500.0" prefWidth="700.0"
-            stylesheets="/styles/styles.css">
+            stylesheets="@../styles/styles.css">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>

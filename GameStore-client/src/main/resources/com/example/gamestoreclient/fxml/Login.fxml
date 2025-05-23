@@ -8,7 +8,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.gamestoreclient.controllers.LoginController"
             prefHeight="400.0" prefWidth="600.0"
-            stylesheets="">
+            stylesheets="@../styles/styles.css">
     <center>
         <VBox alignment="CENTER" spacing="20" styleClass="login-container">
             <padding>

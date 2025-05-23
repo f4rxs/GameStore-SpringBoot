@@ -166,9 +166,6 @@ public class GamesController implements Initializable {
                 priceLabel,
                 detailsButton,
                 addToCartButton,
-                addToWishlistButton,
-                detailsButton,
-                addToCartButton,
                 addToWishlistButton
         );
 

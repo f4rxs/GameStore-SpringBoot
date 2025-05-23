@@ -108,7 +108,7 @@ public class LibraryController implements Initializable {
             imageView.setImage(new Image(game.getImageUrl()));
         } catch (Exception e) {
             // Use placeholder image if the game image URL is invalid
-            imageView.setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
+//            imageView.setImage(new Image(getClass().getResourceAsStream("")));
         }
         imageView.setFitWidth(150);
         imageView.setFitHeight(200);
@@ -139,7 +139,7 @@ public class LibraryController implements Initializable {
 
     private void showGameDetails(Game game) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/game-details.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/game-details.fxml"));
             Parent detailsView = loader.load();
 
             GameDetailsController controller = loader.getController();

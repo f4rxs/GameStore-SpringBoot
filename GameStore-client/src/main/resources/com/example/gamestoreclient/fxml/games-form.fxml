@@ -8,7 +8,7 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.gamestoreclient.controllers.GameFormController"
       spacing="15" prefWidth="600.0" prefHeight="500.0"
-      stylesheets="">
+      stylesheets="@../styles/styles.css">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>

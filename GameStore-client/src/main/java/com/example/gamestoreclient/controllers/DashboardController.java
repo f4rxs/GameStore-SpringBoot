@@ -136,7 +136,7 @@ public class DashboardController implements Initializable {
             if (resource == null) {
                 System.err.println("Resource not found: " + fxmlPath);
 
-                //  message instead of crashing
+                // Show a message instead of crashing
                 Label errorLabel = new Label("View not available yet: " + fxmlPath);
                 errorLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: red; -fx-text-alignment: center;");
                 contentArea.getChildren().clear();
@@ -153,7 +153,7 @@ public class DashboardController implements Initializable {
             System.err.println("Error loading view " + fxmlPath + ": " + e.getMessage());
             e.printStackTrace();
 
-            // error message to prevennt  crashing
+            // error message to prevennt of crashing
             Label errorLabel = new Label("Error loading view: " + fxmlPath + "\n" + e.getMessage());
             errorLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: red; -fx-text-alignment: center;");
             contentArea.getChildren().clear();
