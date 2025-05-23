@@ -1,5 +1,7 @@
 package com.example.gamestoreclient.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 
 public class Order {
@@ -7,6 +9,8 @@ public class Order {
     private int userId;
     private Timestamp orderDate;
     private String status;
+
+    @JsonProperty ("total")
     private double totalAmount;
 
     public Order() {}

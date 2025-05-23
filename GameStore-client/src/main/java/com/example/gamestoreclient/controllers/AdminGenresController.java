@@ -30,8 +30,6 @@ public class AdminGenresController implements Initializable {
     @FXML
     private TableColumn<Genre, String> nameColumn;
 
-    @FXML
-    private TableColumn<Genre, String> descriptionColumn;
 
     @FXML
     private TableColumn<Genre, HBox> actionsColumn;
@@ -50,7 +48,6 @@ public class AdminGenresController implements Initializable {
 
         nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 
-        descriptionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
 
         actionsColumn.setCellFactory(column -> new TableCell<>() {
             private final Button editButton = new Button("Edit");

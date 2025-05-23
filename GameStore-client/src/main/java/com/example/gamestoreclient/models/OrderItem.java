@@ -1,9 +1,13 @@
 package com.example.gamestoreclient.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OrderItem {
     private int orderId;
     private int gameId;
     private int quantity;
+
+    @JsonProperty("unitPrice")
     private double price;
 
     public OrderItem() {}

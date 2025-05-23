@@ -174,6 +174,9 @@ public class OrdersController  implements Initializable {
             for (OrderItem item : items) {
                 Game game = gameMap.get(item.getGameId());
                 if (game != null) {
+                    System.out.println("OrderItem - GameID: " + item.getGameId()
+                            + ", Quantity: " + item.getQuantity()
+                            + ", Price: " + item.getPrice());
                     orderItems.add(new OrderItemDetails(game, item.getQuantity(), item.getPrice()));
                 }
             }

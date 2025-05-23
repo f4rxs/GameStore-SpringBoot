@@ -22,7 +22,6 @@
         <columns>
             <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
             <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
-            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="400"/>
             <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
         </columns>
     </TableView>
