@@ -40,8 +40,8 @@ public class GameDetailsController {
     @FXML
     private Label releaseDateLabel;
 
-    @FXML
-    private Label availabilityLabel;
+//    @FXML
+//    private Label availabilityLabel;
 
     @FXML
     private TextArea descriptionArea;
@@ -75,8 +75,8 @@ public class GameDetailsController {
 
         descriptionArea.setText(game.getDescription());
 
-        // Set availability
-        availabilityLabel.setText("Availability: " + (game.isAvailable() ? "In Stock" : "Out of Stock"));
+//        // Set availability
+//        availabilityLabel.setText("Availability: " + (game.isAvailable() ? "In Stock" : "Out of Stock"));
 
         // Format release date
         if (game.getReleaseDate() != null) {
@@ -85,11 +85,11 @@ public class GameDetailsController {
         }
 
         // Load game image
-        try {
-            gameImage.setImage(new Image(game.getImageUrl()));
-        } catch (Exception e) {
-            gameImage.setImage(new Image("/images/placeholder.png"));
-        }
+//        try {
+//            gameImage.setImage(new Image(game.getImageUrl()));
+//        } catch (Exception e) {
+//            gameImage.setImage(new Image("/images/placeholder.png"));
+//        }
 
         // Load genre
         try {
@@ -181,7 +181,7 @@ public class GameDetailsController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/write-review.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/write-review.fxml"));
             Parent reviewView = loader.load();
 
             WriteReviewController controller = loader.getController();

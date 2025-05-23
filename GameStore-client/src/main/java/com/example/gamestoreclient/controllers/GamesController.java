@@ -173,20 +173,20 @@ public class GamesController implements Initializable {
     }
 
     private void showGameDetails(Game game) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/game-details.fxml"));
-//            Parent detailsView = loader.load();
-//
-//            GameDetailsController controller = loader.getController();
-//            controller.setGame(game);
-//
-//            Stage detailsStage = new Stage();
-//            detailsStage.setTitle(game.getTitle() + " - Details");
-//            detailsStage.setScene(new Scene(detailsView));
-//            detailsStage.show();
-//        } catch (IOException e) {
-//            AlertUtils.showErrorAlert("Error", "Navigation Error", "Could not load game details: " + e.getMessage());
-//        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/game-details.fxml"));
+            Parent detailsView = loader.load();
+
+            GameDetailsController controller = loader.getController();
+            controller.setGame(game);
+
+            Stage detailsStage = new Stage();
+            detailsStage.setTitle(game.getTitle() + " - Details");
+            detailsStage.setScene(new Scene(detailsView));
+            detailsStage.show();
+        } catch (IOException e) {
+            AlertUtils.showErrorAlert("Error", "Navigation Error", "Could not load game details: " + e.getMessage());
+        }
     }
 
     private void addToCart(Game game) {

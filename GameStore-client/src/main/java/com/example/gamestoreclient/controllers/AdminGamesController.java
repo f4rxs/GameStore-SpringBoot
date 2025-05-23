@@ -84,7 +84,7 @@ public class AdminGamesController implements  Initializable {
             return new SimpleStringProperty(currencyFormat.format(cellData.getValue().getPrice()));
         });
 
-        availableColumn.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isAvailable()));
+//        availableColumn.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isAvailable()));
 
         releaseDateColumn.setCellValueFactory(cellData -> {
             if (cellData.getValue().getReleaseDate() != null) {
@@ -153,7 +153,7 @@ public class AdminGamesController implements  Initializable {
     @FXML
     private void handleAddGame() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/game-form.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/games-form.fxml"));
             Parent formView = loader.load();
 
             GameFormController controller = loader.getController();
@@ -172,7 +172,7 @@ public class AdminGamesController implements  Initializable {
 
     private void editGame(Game game) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/game-form.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/games-form.fxml"));
             Parent formView = loader.load();
 
             GameFormController controller = loader.getController();

@@ -1,6 +1,7 @@
 package com.example.gamestore.models;
 
 import jakarta.persistence.*;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -18,16 +19,20 @@ public class Review {
 
     private int rating;
 
+    private String comment;
+
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-    public Review() {}
+    public Review() {
+    }
 
-    public Review(int id, int userId, int gameId, int rating, Timestamp createdAt) {
+    public Review(int id, int userId, int gameId, int rating, String comment ,Timestamp createdAt) {
         this.id = id;
         this.userId = userId;
         this.gameId = gameId;
         this.rating = rating;
+        this.comment = comment;
         this.createdAt = createdAt;
     }
 
@@ -64,6 +69,14 @@ public class Review {
         this.rating = rating;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -74,6 +87,11 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review{id=" + id + ", userId=" + userId + ", gameId=" + gameId + ", Rating=" + rating + "}";
+        return "Review{id=" + id +
+                ", userId=" + userId +
+                ", gameId=" + gameId +
+                ", rating=" + rating +
+                ", comment='" + comment + "'" +
+                ", createdAt=" + createdAt + "}";
     }
 }

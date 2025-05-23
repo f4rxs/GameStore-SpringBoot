@@ -9,20 +9,20 @@ public class Game {
     private double price;
     private int genreId;
     private String imageUrl;
-    private boolean available;
+//    private boolean available;
     private Timestamp releaseDate;
 
     public Game() {}
 
     public Game(int id, String title, String description, double price, int genreId,
-                String imageUrl, boolean available, Timestamp releaseDate) {
+                String imageUrl, Timestamp releaseDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.genreId = genreId;
         this.imageUrl = imageUrl;
-        this.available = available;
+//        this.available = available;
         this.releaseDate = releaseDate;
     }
 
@@ -75,13 +75,13 @@ public class Game {
         this.imageUrl = imageUrl;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
+//    public boolean isAvailable() {
+//        return available;
+//    }
+//
+//    public void setAvailable(boolean available) {
+//        this.available = available;
+//    }
 
     public Timestamp getReleaseDate() {
         return releaseDate;

@@ -111,7 +111,7 @@ public class GameFormController  implements Initializable {
         }
 
         imageUrlField.setText(game.getImageUrl());
-        availableCheckBox.setSelected(game.isAvailable());
+//        availableCheckBox.setSelected(game.isAvailable());
 
         // Set release date
         if (game.getReleaseDate() != null) {
@@ -138,7 +138,7 @@ public class GameFormController  implements Initializable {
             game.setPrice(Double.parseDouble(priceField.getText().trim()));
             game.setGenreId(genreComboBox.getValue().getId());
             game.setImageUrl(imageUrlField.getText().trim());
-            game.setAvailable(availableCheckBox.isSelected());
+//            game.setAvailable(availableCheckBox.isSelected());
 
             // Set release date
             if (releaseDatePicker.getValue() != null) {

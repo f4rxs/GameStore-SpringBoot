@@ -24,7 +24,6 @@
             <TableColumn fx:id="titleColumn" text="Title" prefWidth="200"/>
             <TableColumn fx:id="genreColumn" text="Genre" prefWidth="100"/>
             <TableColumn fx:id="priceColumn" text="Price" prefWidth="80"/>
-            <TableColumn fx:id="availableColumn" text="Available" prefWidth="80"/>
             <TableColumn fx:id="releaseDateColumn" text="Release Date" prefWidth="120"/>
             <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
         </columns>

@@ -67,20 +67,15 @@ public class AdminUsersController implements Initializable {
         });
 
         actionsColumn.setCellFactory(column -> new TableCell<>() {
-            private final Button makeAdminButton = new Button("Make Admin");
-            private final Button makeUserButton = new Button("Make User");
+            private final Button changeRoleButton = new Button();
             private final Button deleteButton = new Button("Delete");
             private final HBox buttonBox = new HBox(10);
 
             {
-                makeAdminButton.setOnAction(event -> {
+                changeRoleButton.setOnAction(event -> {
                     User user = getTableView().getItems().get(getIndex());
-                    changeUserRole(user, "ADMIN");
-                });
-
-                makeUserButton.setOnAction(event -> {
-                    User user = getTableView().getItems().get(getIndex());
-                    changeUserRole(user, "USER");
+                    String newRole = "CUSTOMER".equals(user.getRole()) ? "ADMIN" : "CUSTOMER";
+                    changeUserRole(user, newRole);
                 });
 
                 deleteButton.setOnAction(event -> {
@@ -98,12 +93,13 @@ public class AdminUsersController implements Initializable {
                     User user = getTableView().getItems().get(getIndex());
                     buttonBox.getChildren().clear();
 
-                    if ("USER".equals(user.getRole())) {
-                        buttonBox.getChildren().addAll(makeAdminButton, deleteButton);
+                    if ("CUSTOMER".equals(user.getRole())) {
+                        changeRoleButton.setText("Change to Admin");
                     } else {
-                        buttonBox.getChildren().addAll(makeUserButton, deleteButton);
+                        changeRoleButton.setText("Change to User");
                     }
 
+                    buttonBox.getChildren().addAll(changeRoleButton, deleteButton);
                     setGraphic(buttonBox);
                 }
             }
