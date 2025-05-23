@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gamestoreclient.controllers.AdminController"
+            stylesheets="@../styles/styles.css">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="admin-header">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Admin Dashboard" styleClass="section-title"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" styleClass="admin-sidebar">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            <Button text="Manage Games" onAction="#showManageGames" styleClass="admin-nav-button"/>
+            <Button text="Manage Users" onAction="#showManageUsers" styleClass="admin-nav-button"/>
+            <Button text="Manage Orders" onAction="#showManageOrders" styleClass="admin-nav-button"/>
+            <Button text="Manage Genres" onAction="#showManageGenres" styleClass="admin-nav-button"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="adminContentArea">
+            <!-- Content will be loaded here dynamically -->
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="Welcome to Admin Dashboard" styleClass="welcome-title"/>
+                <Label text="Select an option from the sidebar to manage your store" styleClass="welcome-subtitle"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

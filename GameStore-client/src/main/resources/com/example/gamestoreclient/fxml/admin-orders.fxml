@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gamestoreclient.controllers.AdminOrdersController"
+      spacing="15" styleClass="content-container">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Manage Orders" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="statusFilter" promptText="Filter by Status"/>
+    </HBox>
+
+    <TableView fx:id="ordersTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="80"/>
+            <TableColumn fx:id="userColumn" text="User" prefWidth="150"/>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+            <TableColumn fx:id="totalColumn" text="Total" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <VBox fx:id="orderDetailsContainer" spacing="10" visible="false">
+        <Label text="Order Details" styleClass="section-subtitle"/>
+
+        <TableView fx:id="orderItemsTable" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="gameColumn" text="Game" prefWidth="300"/>
+                <TableColumn fx:id="priceColumn" text="Price" prefWidth="100"/>
+                <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="100"/>
+                <TableColumn fx:id="itemTotalColumn" text="Total" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>
