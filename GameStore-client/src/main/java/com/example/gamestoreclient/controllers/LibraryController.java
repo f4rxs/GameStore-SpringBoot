@@ -105,10 +105,17 @@ public class LibraryController implements Initializable {
         // Game image
         ImageView imageView = new ImageView();
         try {
-            imageView.setImage(new Image(game.getImageUrl()));
+            // Load image based on game title, similar to old project
+            String imageName = game.getTitle();
+            Image image = new Image(getClass().getResource("/com/example/gamestoreclient/images/" + imageName + ".png").toExternalForm());
+            imageView.setImage(image);
         } catch (Exception e) {
-            // Use placeholder image if the game image URL is invalid
-//            imageView.setImage(new Image(getClass().getResourceAsStream("")));
+            try {
+                imageView.setImage(new Image(getClass().getResource("/com/example/gamestoreclient/images/game_placeholder.png").toExternalForm()));
+            } catch (Exception ex) {
+                imageView.setFitWidth(150);
+                imageView.setFitHeight(200);
+            }
         }
         imageView.setFitWidth(150);
         imageView.setFitHeight(200);

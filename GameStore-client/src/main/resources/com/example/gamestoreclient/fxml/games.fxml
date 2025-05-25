@@ -7,22 +7,44 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.gamestoreclient.controllers.GamesController"
-      spacing="10" styleClass="content-container">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+      spacing="10" styleClass="content-container"
+      style="-fx-background-color: #f8fafc;">
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Label text="Game Store" styleClass="section-title"/>
+    <!-- Header Section -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <padding>
+            <Insets top="8" right="16" bottom="8" left="16"/>
+        </padding>
+
+        <Label text="Store" styleClass="section-title"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <ComboBox fx:id="genreFilter" promptText="Filter by Genre"/>
+
+        <!-- Sort Controls -->
+        <HBox spacing="10" alignment="CENTER">
+            <fx:define>
+                <ToggleGroup fx:id="sortToggleGroup"/>
+            </fx:define>
+            <Label text="Sort by:" styleClass="section-subtitle"/>
+            <RadioButton fx:id="sortByPriceRadio" text="Price" toggleGroup="$sortToggleGroup"/>
+            <RadioButton fx:id="sortByDateRadio" text="Date" toggleGroup="$sortToggleGroup"/>
+        </HBox>
+
+        <Separator orientation="VERTICAL"/>
+
+        <!-- Genre Filter -->
+        <ComboBox fx:id="genreFilter" promptText="All Genres"/>
+
+        <!-- Search -->
         <TextField fx:id="searchField" promptText="Search games..."/>
-        <Button text="Search" onAction="#handleSearch"/>
+        <Button text="🔍" onAction="#handleSearch" styleClass="primary-button"/>
     </HBox>
 
-    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
-        <GridPane fx:id="gamesGrid" hgap="20" vgap="20">
-            <!-- Games will be loaded here dynamically -->
-        </GridPane>
+    <!-- Games Grid -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-border-color: transparent;">
+        <FlowPane fx:id="gamesFlowPane" hgap="24" vgap="24" alignment="CENTER"
+                  style="-fx-padding: 16px;">
+            <!-- Games dynamically injected here -->
+        </FlowPane>
     </ScrollPane>
 </VBox>

@@ -199,7 +199,7 @@ public class CartController implements  Initializable {
     private void handleContinueShopping() {
         // Navigate back to the games view
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gamestoreclient/fxml/dashboard.fxml"));
             Parent dashboardView = loader.load();
 
             DashboardController controller = loader.getController();

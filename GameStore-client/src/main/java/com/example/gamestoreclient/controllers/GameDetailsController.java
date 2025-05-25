@@ -85,11 +85,21 @@ public class GameDetailsController {
         }
 
         // Load game image
-//        try {
-//            gameImage.setImage(new Image(game.getImageUrl()));
-//        } catch (Exception e) {
-//            gameImage.setImage(new Image("/images/placeholder.png"));
-//        }
+        try {
+             // Load image based on game title, similar to old project
+                String imageName = game.getTitle();
+                Image image = new Image(getClass().getResource("/com/example/gamestoreclient/images/" + imageName + ".png").toExternalForm());
+                gameImage.setImage(image);
+        } catch (Exception e) {
+            // Use placeholder image if the specific game image is not found
+                try {
+                    gameImage.setImage(new Image(getClass().getResource("/com/example/gamestoreclient/images/game_placeholder.png").toExternalForm()));
+                } catch (Exception ex) {
+                    // Create empty ImageView as fallback
+                    gameImage.setFitWidth(200);
+                    gameImage.setFitHeight(300);
+                }
+        }
 
         // Load genre
         try {

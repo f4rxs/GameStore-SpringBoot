@@ -1,127 +1,211 @@
-/* Base Styles */
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #f8fafc;
+    -fx-font-size: 14px;
 }
 
-/* Header */
+/* Header Styles */
 .header {
-    -fx-background-color: #2c3e50;
-    -fx-padding: 10px;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #667eea 0%, #764ba2 100%);
+    -fx-padding: 12 20 12 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 6, 0, 0, 1);
 }
 
 .app-title {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0, 0, 1);
+}
+
+.user-welcome {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+.logout-button {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 6 12 6 12;  /* Reduced from 8 16 8 16 */
+    -fx-font-weight: normal;
+    -fx-font-size: 12;       /* Added smaller font size */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 1);
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Sidebar */
 .sidebar {
-    -fx-background-color: #34495e;
-    -fx-min-width: 150px;
+    -fx-background-color: #ffffff;
+    -fx-min-width: 180;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 6, 0, 1, 0);
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 1 0 0;
 }
 
 .nav-button {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-padding: 10px;
+    -fx-text-fill: #64748b;
+    -fx-font-size: 13;
+    -fx-font-weight: normal;
+    -fx-padding: 8 16 8 16;
     -fx-alignment: center-left;
-    -fx-min-width: 130px;
+    -fx-min-width: 160;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
 }
 
 .nav-button:hover {
-    -fx-background-color: #2c3e50;
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #3b82f6;
 }
 
-/* Content */
+.nav-button:pressed {
+    -fx-background-color: #e2e8f0;
+}
+
+/* Container */
 .content-container {
-    -fx-background-color: white;
-    -fx-padding: 20px;
+    -fx-background-color: #ffffff;
+    -fx-padding: 16;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 8, 0, 0, 2);
 }
 
 .section-title {
-    -fx-font-size: 24px;
+    -fx-font-size: 22;       /* Reduced from 28 */
     -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
 }
 
 .section-subtitle {
-    -fx-font-size: 18px;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+.empty-message {
+    -fx-font-size: 16;
+    -fx-text-fill: #64748b;
+    -fx-font-style: italic;
+    -fx-padding: 40;
 }
 
 /* Game Card */
 .game-card {
-    -fx-background-color: white;
-    -fx-border-color: #ddd;
-    -fx-border-radius: 5px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 1);
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 6, 0, 0, 1);
+    -fx-padding: 12;
 }
 
 .game-title {
-    -fx-font-size: 16px;
+    -fx-font-size: 14;
     -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
 }
 
 .game-price {
-    -fx-font-size: 14px;
-    -fx-text-fill: #e74c3c;
+    -fx-font-size: 16;
+    -fx-text-fill: #10b981;
     -fx-font-weight: bold;
 }
 
-/* Game Details */
-.game-detail-title {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-}
-
-.game-detail-price {
-    -fx-font-size: 20px;
-    -fx-text-fill: #e74c3c;
-    -fx-font-weight: bold;
-}
-
-/* Forms */
+/* Form Containers */
 .login-container,
 .register-container {
-    -fx-background-color: white;
-    -fx-border-color: #ddd;
-    -fx-border-radius: 5px;
-    -fx-padding: 20px;
-    -fx-max-width: 400px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 1);
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 12, 0, 0, 4);
 }
 
 .title-label {
-    -fx-font-size: 24px;
+    -fx-font-size: 22;
     -fx-font-weight: bold;
-    -fx-padding: 0 0 20px 0;
+    -fx-text-fill: #1e293b;
+    -fx-alignment: center;
 }
 
 .error-label {
-    -fx-text-fill: #e74c3c;
-    -fx-font-size: 12px;
+    -fx-text-fill: #ef4444;
+    -fx-font-size: 13;
+    -fx-font-weight: normal;
+    -fx-padding: 8 0 8 0;
+}
+
+/* Input */
+.text-field,
+.password-field,
+.text-area,
+.combo-box {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13;
+    -fx-text-fill: #1e293b;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused,
+.combo-box:focused {
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 2;
+    -fx-background-color: #ffffff;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 13;
+    -fx-font-weight: normal;
 }
 
 .primary-button {
-    -fx-background-color: #3498db;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #3b82f6 0%, #2563eb 100%);
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 100px;
 }
 
 .primary-button:hover {
-    -fx-background-color: #2980b9;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #2563eb 0%, #1d4ed8 100%);
 }
 
 .secondary-button {
-    -fx-background-color: #95a5a6;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 100px;
+    -fx-background-color: #f8fafc;
+    -fx-text-fill: #64748b;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
 }
 
 .secondary-button:hover {
-    -fx-background-color: #7f8c8d;
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+    -fx-border-color: #cbd5e1;
+}
+
+.danger-button {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #ef4444 0%, #dc2626 100%);
+    -fx-text-fill: white;
+}
+
+.danger-button:hover {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dc2626 0%, #b91c1c 100%);
 }

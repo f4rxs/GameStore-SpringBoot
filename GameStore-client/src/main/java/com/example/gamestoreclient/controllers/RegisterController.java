@@ -80,7 +80,7 @@ public class RegisterController {
     @FXML
     private void handleBackToLogin(ActionEvent event) {
         try {
-            Parent loginView = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+            Parent loginView = FXMLLoader.load(getClass().getResource("/com/example/gamestoreclient/fxml/login.fxml"));
             Scene loginScene = new Scene(loginView);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
