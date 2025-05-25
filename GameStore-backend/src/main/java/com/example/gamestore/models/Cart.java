@@ -39,7 +39,7 @@ public class Cart {
             this.gameId = gameId;
         }
 
-        // equals and hashCode methods
+
     }
 
     // Getters and setters

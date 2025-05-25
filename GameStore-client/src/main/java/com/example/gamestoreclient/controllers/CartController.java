@@ -252,7 +252,6 @@ public class CartController implements  Initializable {
         }
     }
 
-    // Helper class to represent a cart item with game and quantity
     public static class CartItem {
         private final Game game;
         private final int quantity;

@@ -162,12 +162,11 @@ public class LibraryController implements Initializable {
     }
 
     private void playGame(Game game) {
-        // In a real application, this would launch the game
-        // For this demo, we'll just show a message
+
         AlertUtils.showInfoAlert(
                 "Launch Game",
                 "Playing " + game.getTitle(),
-                "This is a demo. In a real application, the game would launch now."
+                "Plug the controlerrrr!"
         );
     }
 }

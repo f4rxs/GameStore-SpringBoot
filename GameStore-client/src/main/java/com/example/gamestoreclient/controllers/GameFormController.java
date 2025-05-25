@@ -42,8 +42,8 @@ public class GameFormController  implements Initializable {
     @FXML
     private ComboBox<Genre> genreComboBox;
 
-    @FXML
-    private TextField imageUrlField;
+//    @FXML
+//    private TextField imageUrlField;
 
     @FXML
     private CheckBox availableCheckBox;
@@ -110,7 +110,7 @@ public class GameFormController  implements Initializable {
             }
         }
 
-        imageUrlField.setText(game.getImageUrl());
+//        imageUrlField.setText(game.getImageUrl());
 //        availableCheckBox.setSelected(game.isAvailable());
 
         // Set release date
@@ -137,7 +137,7 @@ public class GameFormController  implements Initializable {
             game.setDescription(descriptionArea.getText().trim());
             game.setPrice(Double.parseDouble(priceField.getText().trim()));
             game.setGenreId(genreComboBox.getValue().getId());
-            game.setImageUrl(imageUrlField.getText().trim());
+//            game.setImageUrl(imageUrlField.getText().trim());
 //            game.setAvailable(availableCheckBox.isSelected());
 
             // Set release date
@@ -207,10 +207,10 @@ public class GameFormController  implements Initializable {
             return false;
         }
 
-        if (imageUrlField.getText().trim().isEmpty()) {
-            AlertUtils.showWarningAlert("Validation Error", "Image URL Required", "Please enter an image URL for the game.");
-            return false;
-        }
+//        if (imageUrlField.getText().trim().isEmpty()) {
+//            AlertUtils.showWarningAlert("Validation Error", "Image URL Required", "Please enter an image URL for the game.");
+//            return false;
+//        }
 
         return true;
     }

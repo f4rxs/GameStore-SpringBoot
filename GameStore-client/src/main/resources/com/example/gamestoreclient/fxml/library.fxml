@@ -19,8 +19,10 @@
         <Button text="Search" onAction="#handleSearch"/>
     </HBox>
 
-    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
-        <GridPane fx:id="gamesGrid" hgap="20" vgap="20">
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-border-color: transparent;">
+        <GridPane fx:id="gamesGrid" hgap="24" vgap="24" alignment="CENTER"
+                  style="-fx-padding: 10px;">
             <!-- Games will be loaded here dynamically -->
         </GridPane>
     </ScrollPane>

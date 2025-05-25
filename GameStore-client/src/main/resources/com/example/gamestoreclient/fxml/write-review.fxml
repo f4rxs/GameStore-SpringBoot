@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
@@ -17,14 +15,14 @@
 
     <Label text="Rating (1-5):"/>
     <HBox spacing="10">
+        <fx:define>
+            <ToggleGroup fx:id="ratingGroup"/>
+        </fx:define>
         <RadioButton fx:id="rating1" text="1" toggleGroup="$ratingGroup"/>
         <RadioButton fx:id="rating2" text="2" toggleGroup="$ratingGroup"/>
         <RadioButton fx:id="rating3" text="3" toggleGroup="$ratingGroup"/>
         <RadioButton fx:id="rating4" text="4" toggleGroup="$ratingGroup"/>
         <RadioButton fx:id="rating5" text="5" toggleGroup="$ratingGroup"/>
-        <fx:define>
-            <ToggleGroup fx:id="ratingGroup"/>
-        </fx:define>
     </HBox>
 
     <Label text="Your Review:"/>

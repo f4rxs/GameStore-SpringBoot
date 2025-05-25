@@ -5,7 +5,6 @@ import com.example.gamestore.models.OrderItem;
 
 import java.util.List;
 
-// Helper class for creating an order with items
 public  class OrderWithItemsRequest {
     private Order order;
     private List<OrderItem> items;

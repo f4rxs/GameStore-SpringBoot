@@ -59,7 +59,7 @@ public class RegisterController {
             user.setName(name);
             user.setEmail(email);
             user.setPassword(password);
-            user.setRole("USER"); // Default role
+            user.setRole("CUSTOMER");
             user.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 
             // Register user

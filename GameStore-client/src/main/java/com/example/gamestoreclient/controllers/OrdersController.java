@@ -155,7 +155,7 @@ public class OrdersController  implements Initializable {
         try {
             List<Game> games = gameService.getAllGames();
 
-            // Create a map of game ID to Game object for quick lookup
+
             for (Game game : games) {
                 gameMap.put(game.getId(), game);
             }
@@ -189,7 +189,7 @@ public class OrdersController  implements Initializable {
         }
     }
 
-    // Helper class to represent an order item with game details
+
     public static class OrderItemDetails {
         private final Game game;
         private final int quantity;

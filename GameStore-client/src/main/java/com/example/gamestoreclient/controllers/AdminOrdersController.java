@@ -184,7 +184,7 @@ public class AdminOrdersController  implements  Initializable {
         try {
             List<User> users = userService.getAllUsers();
 
-            // Create a map of user ID to User object for quick lookup
+
             for (User user : users) {
                 userMap.put(user.getId(), user);
             }
@@ -259,10 +259,8 @@ public class AdminOrdersController  implements  Initializable {
         try {
             orderService.updateOrderStatus(order.getId(), newStatus);
 
-            // Update the order in the list
             order.setStatus(newStatus);
 
-            // Refresh the table
             ordersTable.refresh();
 
             AlertUtils.showInfoAlert("Success", "Status Updated",
@@ -273,7 +271,6 @@ public class AdminOrdersController  implements  Initializable {
         }
     }
 
-    // Helper class to represent an order item with game details
     public static class OrderItemDetails {
         private final Game game;
         private final int quantity;

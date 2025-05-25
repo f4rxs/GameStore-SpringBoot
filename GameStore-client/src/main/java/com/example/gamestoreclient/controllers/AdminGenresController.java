@@ -125,7 +125,6 @@ public class AdminGenresController implements Initializable {
             descriptionArea.setText(genre.getDescription());
         }
 
-        // Add fields to the grid
         grid.add(new Label("Name:"), 0, 0);
         grid.add(nameField, 1, 0);
         grid.add(new Label("Description:"), 0, 1);
@@ -133,10 +132,9 @@ public class AdminGenresController implements Initializable {
 
         dialog.getDialogPane().setContent(grid);
 
-        // Request focus on the name field by default
+
         nameField.requestFocus();
 
-        // Convert the result to a genre when the save button is clicked
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == saveButtonType) {
                 if (nameField.getText().trim().isEmpty()) {

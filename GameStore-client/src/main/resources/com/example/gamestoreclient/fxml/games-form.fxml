@@ -29,8 +29,8 @@
         <Label text="Genre:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
         <ComboBox fx:id="genreComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-        <Label text="Image URL:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextField fx:id="imageUrlField" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+<!--        <Label text="Image URL:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>-->
+<!--        <TextField fx:id="imageUrlField" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>-->
 
         <Label text="Available:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
         <CheckBox fx:id="availableCheckBox" GridPane.rowIndex="5" GridPane.columnIndex="1"/>

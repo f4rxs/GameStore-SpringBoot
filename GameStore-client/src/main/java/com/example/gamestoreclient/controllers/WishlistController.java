@@ -190,7 +190,6 @@ public class WishlistController implements Initializable {
         }
     }
 
-    // Helper class to represent a wishlist item with game and wishlist data
     public static class WishlistItem {
         private final Game game;
         private final WishList wishList;

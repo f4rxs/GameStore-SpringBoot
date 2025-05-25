@@ -34,7 +34,7 @@ public class UserService {
     }
 
     public Optional<User> findUserByName(String name) {
-        // This is a custom query we need to add to the repository
+
         return userRepository.findByName(name);
     }
 
@@ -82,7 +82,7 @@ public class UserService {
 
         User existingUser = existingUserOpt.get();
 
-        // Only update and hash password if it's provided
+
         if (user.getPassword() != null && !user.getPassword().isEmpty()) {
             String hashedPassword = PasswordUtils.hashPassword(user.getPassword());
             user.setPassword(hashedPassword);
@@ -90,7 +90,7 @@ public class UserService {
             user.setPassword(existingUser.getPassword());
         }
 
-        // Preserve creation timestamp
+
         if (user.getCreatedAt() == null) {
             user.setCreatedAt(existingUser.getCreatedAt());
         }

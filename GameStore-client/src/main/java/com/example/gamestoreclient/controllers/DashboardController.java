@@ -47,7 +47,7 @@ public class DashboardController implements Initializable {
                 System.out.println("No user logged in");
             }
 
-            // Show admin button if user is admin
+
             adminButton.setVisible(SessionManager.getInstance().isAdmin());
             System.out.println("Admin button visible: " + SessionManager.getInstance().isAdmin());
 
@@ -131,12 +131,12 @@ public class DashboardController implements Initializable {
         try {
             System.out.println("Loading view: " + fxmlPath);
 
-            // Check if resource exists
+
             URL resource = getClass().getResource(fxmlPath);
             if (resource == null) {
                 System.err.println("Resource not found: " + fxmlPath);
 
-                // Show a message instead of crashing
+                // Show a message when the error happens
                 Label errorLabel = new Label("View not available yet: " + fxmlPath);
                 errorLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: red; -fx-text-alignment: center;");
                 contentArea.getChildren().clear();
