@@ -9,51 +9,52 @@
             fx:controller="com.example.gamestoreclient.controllers.LoginController"
             prefHeight="600.0" prefWidth="900.0"
             stylesheets="@../styles/styles.css"
-            style="-fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            style="-fx-background-color: #f1f5f9;">
 
     <center>
-        <VBox alignment="CENTER" spacing="24" styleClass="login-container">
+        <VBox alignment="CENTER" spacing="32"
+              style="-fx-background-color: white; -fx-background-radius: 16; -fx-max-width: 420px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 1);">
             <padding>
-                <Insets top="40" right="40" bottom="40" left="40"/>
+                <Insets top="48" right="40" bottom="48" left="40"/>
             </padding>
 
             <!-- Logo/Title Section -->
-            <VBox alignment="CENTER" spacing="8">
-                <Label text="🎮" style="-fx-font-size: 48px;"/>
-                <Label text="Game Store" styleClass="title-label"/>
-                <Label text="Welcome back! Please sign in to your account."
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="🎮" style="-fx-font-size: 56px;"/>
+                <Label text="Welcome Back" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+                <Label text="Sign in to access your account"
                        style="-fx-text-fill: #64748b; -fx-font-size: 14px;"/>
             </VBox>
 
             <!-- Form Section -->
-            <VBox spacing="20" style="-fx-min-width: 350px;">
+            <VBox spacing="24" style="-fx-min-width: 340px;">
                 <VBox spacing="8">
-                    <Label text="Email Address" style="-fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                    <Label text="Email" style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-size: 13px;"/>
                     <TextField fx:id="emailField" promptText="Enter your email address"
-                               style="-fx-pref-height: 45px;"/>
+                               style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-pref-height: 45px; -fx-font-size: 14px; -fx-padding: 0 16;"/>
                 </VBox>
 
                 <VBox spacing="8">
-                    <Label text="Password" style="-fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                    <Label text="Password" style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-size: 13px;"/>
                     <PasswordField fx:id="passwordField" promptText="Enter your password"
-                                   style="-fx-pref-height: 45px;"/>
+                                   style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-pref-height: 45px; -fx-font-size: 14px; -fx-padding: 0 16;"/>
                 </VBox>
             </VBox>
 
             <!-- Buttons Section -->
-            <VBox spacing="16" alignment="CENTER" style="-fx-min-width: 350px;">
-                <Button text="Sign In" onAction="#handleLogin" styleClass="primary-button"
-                        style="-fx-pref-width: 350px; -fx-pref-height: 45px; -fx-font-size: 16px;"/>
+            <VBox spacing="20" alignment="CENTER">
+                <Button text="Sign In" onAction="#handleLogin"
+                        style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold; -fx-pref-width: 340px; -fx-pref-height: 45px; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
                 <HBox alignment="CENTER" spacing="8">
-                    <Label text="Don't have an account?" style="-fx-text-fill: #64748b;"/>
-                    <Button text="Create Account" onAction="#handleRegister"
-                            style="-fx-background-color: transparent; -fx-text-fill: #3b82f6; -fx-underline: true; -fx-cursor: hand;"/>
+                    <Label text="New to Game Store?" style="-fx-text-fill: #64748b; -fx-font-size: 14px;"/>
+                    <Button text="Create an account" onAction="#handleRegister"
+                            style="-fx-background-color: transparent; -fx-text-fill: #3b82f6; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand;"/>
                 </HBox>
             </VBox>
 
-            <Label fx:id="errorLabel" styleClass="error-label" visible="false"
-                   style="-fx-background-color: #fee2e2; -fx-padding: 12px; -fx-background-radius: 8px;"/>
+            <Label fx:id="errorLabel" visible="false"
+                   style="-fx-background-color: #fef2f2; -fx-text-fill: #991b1b; -fx-padding: 12 16; -fx-background-radius: 8; -fx-font-size: 13px; -fx-graphic-text-gap: 8;"/>
         </VBox>
     </center>
 </BorderPane>

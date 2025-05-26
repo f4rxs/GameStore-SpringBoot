@@ -297,16 +297,44 @@ public class GamesController implements Initializable {
         // View details button
         Button viewButton = new Button("View Details");
         viewButton.setStyle(
-                "-fx-background-color: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); " +
-                        "-fx-text-fill: white; " +
-                        "-fx-background-radius: 8px; " +
-                        "-fx-border-radius: 8px; " +
+                "-fx-background-color: #f8fafc; " +
+                        "-fx-text-fill: #334155; " +
+                        "-fx-background-radius: 6px; " +
+                        "-fx-border-color: #cbd5e1; " +
+                        "-fx-border-radius: 6px; " +
+                        "-fx-border-width: 1px; " +
                         "-fx-padding: 8px 16px; " +
-                        "-fx-font-size: 14px; " +
-                        "-fx-font-weight: 600; " +
-                        "-fx-cursor: hand; " +
-                        "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 2);"
+                        "-fx-font-size: 13px; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-cursor: hand;"
         );
+
+// Add hover effect
+        viewButton.setOnMouseEntered(e -> viewButton.setStyle(
+                "-fx-background-color: #f1f5f9; " +
+                        "-fx-text-fill: #1e293b; " +
+                        "-fx-background-radius: 6px; " +
+                        "-fx-border-color: #94a3b8; " +
+                        "-fx-border-radius: 6px; " +
+                        "-fx-border-width: 1px; " +
+                        "-fx-padding: 8px 16px; " +
+                        "-fx-font-size: 13px; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-cursor: hand;"
+        ));
+
+        viewButton.setOnMouseExited(e -> viewButton.setStyle(
+                "-fx-background-color: #f8fafc; " +
+                        "-fx-text-fill: #334155; " +
+                        "-fx-background-radius: 6px; " +
+                        "-fx-border-color: #cbd5e1; " +
+                        "-fx-border-radius: 6px; " +
+                        "-fx-border-width: 1px; " +
+                        "-fx-padding: 8px 16px; " +
+                        "-fx-font-size: 13px; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-cursor: hand;"
+        ));
         viewButton.setPrefWidth(170);
         viewButton.setOnAction(e -> showGameDetails(game));
 
